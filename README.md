@@ -30,7 +30,10 @@ or to execute `composer require onoi/message-reporter:~1.0`.
 
 ## Usage
 
-The message reporter interface for all interactions is specified by `Onoi\MessageReporter\MessageReporter`.
+The message reporter specifies `Onoi\MessageReporter\MessageReporter` as an interface for all interactions with a set of supporting classes:
+- `MessageReporterFactory`
+- `ObservableMessageReporter`
+- `NullMessageReporter`
 
 ```php
 	class Bar {
@@ -92,7 +95,7 @@ The library provides unit tests that covers the core-functionality normally run 
 
 ### Release notes
 
-* 1.0.0 initial release (2015-01-X)
+* 1.0.0 initial release (2015-01-24)
 
 ## License
 
