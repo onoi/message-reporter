@@ -60,10 +60,12 @@ class ObservableMessageReporter implements MessageReporter {
 	 *
 	 * @since 1.0
 	 *
-	 * @param callable $handler
+	 * @param callable $handler|null
 	 */
-	public function registerReporterCallback( $handler ) {
-		$this->callbacks[] = $handler;
+	public function registerReporterCallback( $handler = null ) {
+		if ( is_callable( $handler ) ) {
+			$this->callbacks[] = $handler;
+		}
 	}
 
 }

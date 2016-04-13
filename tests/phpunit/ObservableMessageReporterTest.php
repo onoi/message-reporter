@@ -7,7 +7,6 @@ use Onoi\MessageReporter\MessageReporter;
 
 /**
  * @covers \Onoi\MessageReporter\ObservableMessageReporter
- *
  * @group onoi-message-reporter
  *
  * @license GNU GPL v2+
@@ -115,6 +114,27 @@ class ObservableMessageReporterTest extends MessageReporterTestCase {
 		$reporter->reportMessage( $message );
 
 		$this->assertEquals( 4, $callCount );
+	}
+
+	public function testDoNoFailOnNotCallableHandler() {
+
+		$reporter = new ObservableMessageReporter();
+
+		$reporter->registerReporterCallback( null );
+		$reporter->registerReporterCallback( array( $this, 'functionDoesNotExist' ) );
+
+		$callCount = 0;
+
+		$reporter->registerReporterCallback( function( $actual ) use ( &$callCount ) {
+			$callCount += 1;
+		} );
+
+		$reporter->reportMessage( 'Foo' );
+
+		$this->assertEquals(
+			1,
+			$callCount
+		);
 	}
 
 }
