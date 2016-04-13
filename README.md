@@ -12,63 +12,67 @@ the [Semantic MediaWiki][smw] code base and is now being deployed as independent
 
 ## Requirements
 
-PHP 5.3 or later
+PHP 5.3 / HHVM 3.3 or later
 
 ## Installation
 
-The recommended installation method for this library is by either adding
-the dependency to your [composer.json][composer].
+The recommended installation method for this library is to add it as dependency to your [composer.json][composer].
 
 ```json
 {
 	"require": {
-		"onoi/message-reporter": "~1.0"
+		"onoi/message-reporter": "~1.1"
 	}
 }
 ```
-or to execute `composer require onoi/message-reporter:~1.0`.
 
 ## Usage
 
-The message reporter specifies `Onoi\MessageReporter\MessageReporter` as an interface for all interactions with a set of supporting classes:
+The message reporter specifies `MessageReporter` as an interface for all interactions with a set of supporting classes:
 - `MessageReporterFactory`
 - `ObservableMessageReporter`
 - `NullMessageReporter`
 
 ```php
+use Onoi\MessageReporter\MessageReporterFactory
+use Onoi\MessageReporter\MessageReporter
+
 	class Bar {
 
-		private $reporter;
+		private $messageReporter;
 
 		public function __construct() {
-			$this->reporter = MessageReporterFactory::getInstance()->newNullMessageReporter();
+			$this->messageReporter = MessageReporterFactory::getInstance()->newNullMessageReporter();
 		}
 
-		public function setMessageReporter( MessageReporter $reporter ) {
-			$this->reporter = $reporter;
+		public function setMessageReporter( MessageReporter $messageReporter ) {
+			$this->messageReporter = $messageReporter;
 		}
 
 		public function doSomethingElse() {
-			$this->reporter->reportMessage( 'Did something ...' );
+			$this->messageReporter->reportMessage( 'Now ...' );
 		}
 	}
 ```
 ```php
+use Onoi\MessageReporter\MessageReporterFactory
+use Onoi\MessageReporter\MessageReporter
+
 	class Foo implements MessageReporter {
 
 		public function doSomething( Bar $bar ) {
 
 			$messageReporterFactory = new MessageReporterFactory();
 
-			$messageReporter = $messageReporterFactory->newObservableMessageReporter();
-			$messageReporter->registerReporterCallback( array( $this, 'reportMessage' ) );
+			$observableMessageReporter = $messageReporterFactory->newObservableMessageReporter();
+			$observableMessageReporter->registerReporterCallback( array( $this, 'reportMessage' ) );
 
 			or
 
 			// If the class implements the MessageReporter
-			$messageReporter->registerMessageReporter( $this );
+			$observableMessageReporter->registerMessageReporter( $this );
 
-			$bar->setMessageReporter( $messageReporter );
+			$bar->setMessageReporter( $observableMessageReporter );
 			$bar->doSomethingElse();
 		}
 
@@ -77,8 +81,8 @@ The message reporter specifies `Onoi\MessageReporter\MessageReporter` as an inte
 		}
 	}
 
-	$foo = new Foo();
-	$foo->doSomething( new Bar() );
+	$instance = new Foo();
+	$instance->doSomething( new Bar() );
 ```
 
 ## Contribution and support
@@ -95,7 +99,15 @@ The library provides unit tests that covers the core-functionality normally run 
 
 ### Release notes
 
-* 1.0.0 initial release (2015-01-24)
+* 1.1.0 (2016-04-13)
+ - `ObservableMessageReporter::registerReporterCallback` to register only callable handlers
+
+* 1.0.0 (2015-01-24)
+ - Initial release
+ - `MessageReporterFactory`
+ - `ObservableMessageReporter`
+ - `NullMessageReporter`
+ - `MessageReporter`
 
 ## License
 
