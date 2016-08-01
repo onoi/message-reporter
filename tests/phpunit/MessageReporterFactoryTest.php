@@ -6,7 +6,6 @@ use Onoi\MessageReporter\MessageReporterFactory;
 
 /**
  * @covers \Onoi\MessageReporter\MessageReporterFactory
- *
  * @group onoi-message-reporter
  *
  * @license GNU GPL v2+
@@ -46,9 +45,9 @@ class CacheFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testNewNullMessageReporter() {
+	public function testCanConstructNullMessageReporter() {
 
-		$instance =	new MessageReporterFactory();
+		$instance = new MessageReporterFactory();
 
 		$this->assertInstanceOf(
 			'\Onoi\MessageReporter\NullMessageReporter',
@@ -56,13 +55,23 @@ class CacheFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testNewObservableMessageReporter() {
+	public function testCanConstructObservableMessageReporter() {
 
-		$instance =	new MessageReporterFactory();
+		$instance = new MessageReporterFactory();
 
 		$this->assertInstanceOf(
 			'\Onoi\MessageReporter\ObservableMessageReporter',
 			$instance->newObservableMessageReporter()
+		);
+	}
+
+	public function testCanConstructSpyMessageReporter() {
+
+		$instance = new MessageReporterFactory();
+
+		$this->assertInstanceOf(
+			'\Onoi\MessageReporter\SpyMessageReporter',
+			$instance->newSpyMessageReporter()
 		);
 	}
 

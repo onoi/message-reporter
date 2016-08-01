@@ -21,18 +21,17 @@ The recommended installation method for this library is to add it as dependency 
 ```json
 {
 	"require": {
-		"onoi/message-reporter": "~1.1"
+		"onoi/message-reporter": "~1.2"
 	}
 }
 ```
 
 ## Usage
 
-The message reporter specifies `MessageReporter` as an interface for all interactions with a set of supporting classes:
+The message reporter specifies `MessageReporter` and `MessageReporterAware` as an interface for all interactions with a set of supporting classes:
 - `MessageReporterFactory`
 - `ObservableMessageReporter`
 - `NullMessageReporter`
-- `MessageReporterAware`
 - `SpyMessageReporter`
 
 ```php
