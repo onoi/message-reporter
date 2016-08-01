@@ -54,4 +54,13 @@ class MessageReporterFactory {
 		return new ObservableMessageReporter();
 	}
 
+	/**
+	 * @since 1.2
+	 *
+	 * @return SpyMessageReporter
+	 */
+	public function newSpyMessageReporter() {
+		return new SpyMessageReporter();
+	}
+
 }

@@ -32,57 +32,56 @@ The message reporter specifies `MessageReporter` as an interface for all interac
 - `MessageReporterFactory`
 - `ObservableMessageReporter`
 - `NullMessageReporter`
+- `MessageReporterAware`
+- `SpyMessageReporter`
 
 ```php
-use Onoi\MessageReporter\MessageReporterFactory
-use Onoi\MessageReporter\MessageReporter
+use Onoi\MessageReporter\MessageReporterFactory;
+use Onoi\MessageReporter\MessageReporterAware;
+use Onoi\MessageReporter\MessageReporter;
 
-	class Bar {
+class Bar implements MessageReporterAware {
 
-		private $messageReporter;
+	private $messageReporter;
 
-		public function __construct() {
-			$this->messageReporter = MessageReporterFactory::getInstance()->newNullMessageReporter();
-		}
-
-		public function setMessageReporter( MessageReporter $messageReporter ) {
-			$this->messageReporter = $messageReporter;
-		}
-
-		public function doSomethingElse() {
-			$this->messageReporter->reportMessage( 'Now ...' );
-		}
+	public function __construct() {
+		$this->messageReporter = MessageReporterFactory::getInstance()->newNullMessageReporter();
 	}
+
+	public function setMessageReporter( MessageReporter $messageReporter ) {
+		$this->messageReporter = $messageReporter;
+	}
+
+	public function doSomething() {
+		$this->messageReporter->reportMessage( 'Doing ...' );
+	}
+}
 ```
 ```php
-use Onoi\MessageReporter\MessageReporterFactory
-use Onoi\MessageReporter\MessageReporter
+use Onoi\MessageReporter\MessageReporterFactory;
+use Onoi\MessageReporter\MessageReporter;
 
-	class Foo implements MessageReporter {
+class Foo implements MessageReporter {
 
-		public function doSomething( Bar $bar ) {
-
-			$messageReporterFactory = new MessageReporterFactory();
-
-			$observableMessageReporter = $messageReporterFactory->newObservableMessageReporter();
-			$observableMessageReporter->registerReporterCallback( array( $this, 'reportMessage' ) );
-
-			or
-
-			// If the class implements the MessageReporter
-			$observableMessageReporter->registerMessageReporter( $this );
-
-			$bar->setMessageReporter( $observableMessageReporter );
-			$bar->doSomethingElse();
-		}
-
-		public function reportMessage( $message ) {
-			// output
-		}
+	public function reportMessage( $message ) {
+		// output
 	}
+}
 
-	$instance = new Foo();
-	$instance->doSomething( new Bar() );
+$foo = new Foo();
+
+$messageReporterFactory = new MessageReporterFactory();
+
+$observableMessageReporter = $messageReporterFactory->newObservableMessageReporter();
+$observableMessageReporter->registerReporterCallback( array( $foo, 'reportMessage' ) );
+
+or
+
+// If the class implements the MessageReporter
+$observableMessageReporter->registerMessageReporter( $foo );
+
+$bar = new Bar();
+$bar->setMessageReporter( $observableMessageReporter );
 ```
 
 ## Contribution and support
@@ -98,6 +97,9 @@ developers mailing list and have a look at the [contribution guidelinee](/CONTRI
 The library provides unit tests that covers the core-functionality normally run by the [continues integration platform][travis]. Tests can also be executed manually using the PHPUnit configuration file found in the root directory.
 
 ### Release notes
+
+* 1.2.0 (2016-08-02)
+ - Added `MessageReporterAware` and `SpyMessageReporter`
 
 * 1.1.0 (2016-04-13)
  - `ObservableMessageReporter::registerReporterCallback` to register only callable handlers
