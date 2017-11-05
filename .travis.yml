@@ -10,7 +10,7 @@ matrix:
       php: hhvm
 
 script:
-  - bash ./tests/travis/run-tests.sh
+  - bash ./tests/ci/run-tests.sh
 
 after_success:
-  - bash ./tests/travis/upload-coverage-report.sh
+  - bash ./tests/ci/upload-coverage-report.sh

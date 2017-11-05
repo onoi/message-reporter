@@ -10,7 +10,7 @@
 error_reporting( E_ALL | E_STRICT );
 date_default_timezone_set( 'UTC' );
 
-if ( php_sapi_name() !== 'cli' ) {
+if ( PHP_SAPI !== 'cli' && PHP_SAPI !== 'phpdbg' ) {
 	die( 'Not an entry point' );
 }
 
