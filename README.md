@@ -89,11 +89,11 @@ developers mailing list and have a look at the [contribution guidelinee](/CONTRI
 * [File an issue](https://github.com/onoi/message-reporter/issues)
 * [Submit a pull request](https://github.com/onoi/message-reporter/pulls)
 
-### Tests
+## Tests
 
 The library provides unit tests that covers the core-functionality normally run by the [continues integration platform][travis]. Tests can also be executed manually using the PHPUnit configuration file found in the root directory.
 
-### Release notes
+## Release notes
 
 * 1.3.0 (2017-11-05)
   - Added `MessageReporterAwareTrait`
