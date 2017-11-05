@@ -12,7 +12,7 @@ the [Semantic MediaWiki][smw] code base and is now being deployed as independent
 
 ## Requirements
 
-PHP 5.3 / HHVM 3.3 or later
+PHP 5.5 / HHVM 3.3 or later
 
 ## Installation
 
@@ -21,7 +21,7 @@ The recommended installation method for this library is to add it as dependency 
 ```json
 {
 	"require": {
-		"onoi/message-reporter": "~1.2"
+		"onoi/message-reporter": "~1.3"
 	}
 }
 ```
@@ -37,18 +37,15 @@ The message reporter specifies `MessageReporter` and `MessageReporterAware` as a
 ```php
 use Onoi\MessageReporter\MessageReporterFactory;
 use Onoi\MessageReporter\MessageReporterAware;
+use Onoi\MessageReporter\MessageReporterAwareTrait;
 use Onoi\MessageReporter\MessageReporter;
 
 class Bar implements MessageReporterAware {
 
-	private $messageReporter;
+	use MessageReporterAwareTrait;
 
 	public function __construct() {
 		$this->messageReporter = MessageReporterFactory::getInstance()->newNullMessageReporter();
-	}
-
-	public function setMessageReporter( MessageReporter $messageReporter ) {
-		$this->messageReporter = $messageReporter;
 	}
 
 	public function doSomething() {
@@ -56,6 +53,7 @@ class Bar implements MessageReporterAware {
 	}
 }
 ```
+
 ```php
 use Onoi\MessageReporter\MessageReporterFactory;
 use Onoi\MessageReporter\MessageReporter;
@@ -97,18 +95,21 @@ The library provides unit tests that covers the core-functionality normally run 
 
 ### Release notes
 
+* 1.3.0 (2017-11-05)
+  - Added `MessageReporterAwareTrait`
+
 * 1.2.0 (2016-08-02)
- - Added `MessageReporterAware` and `SpyMessageReporter`
+  - Added `MessageReporterAware` and `SpyMessageReporter`
 
 * 1.1.0 (2016-04-13)
- - `ObservableMessageReporter::registerReporterCallback` to register only callable handlers
+  - `ObservableMessageReporter::registerReporterCallback` to register only callable handlers
 
 * 1.0.0 (2015-01-24)
- - Initial release
- - `MessageReporterFactory`
- - `ObservableMessageReporter`
- - `NullMessageReporter`
- - `MessageReporter`
+  - Initial release
+  - `MessageReporterFactory`
+  - `ObservableMessageReporter`
+  - `NullMessageReporter`
+  - `MessageReporter`
 
 ## License
 

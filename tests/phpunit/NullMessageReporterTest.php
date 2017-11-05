@@ -6,7 +6,6 @@ use Onoi\MessageReporter\NullMessageReporter;
 
 /**
  * @covers \Onoi\MessageReporter\NullMessageReporter
- *
  * @group onoi-message-reporter
  *
  * @license GNU GPL v2+
