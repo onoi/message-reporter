@@ -6,13 +6,13 @@
 		"messages"
 	],
 	"homepage": "https://github.com/onoi/message-reporter",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Jeroen De Dauw"
 		},
 		{
-			"name": "mwjames"
+			"name": "James Hong Kong"
 		}
 	],
 	"require": {
