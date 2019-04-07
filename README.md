@@ -113,7 +113,8 @@ You can also invoke PHPUnit directly to pass it arguments, as follows
 
 ## Release notes
 
-* 1.4.0 (dev)
+* 1.4.0 (2019-04-07)
+  - Added `CallbackMessageReporter`
   - Changed minimum PHP version to 5.6.99
 
 * 1.3.0 (2017-11-05)

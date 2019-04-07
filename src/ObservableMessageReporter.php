@@ -33,7 +33,6 @@ class ObservableMessageReporter implements MessageReporter {
 	 * @since 1.0
 	 *
 	 * @see MessageReporter::report
-	 *
 	 */
 	public function reportMessage( $message ) {
 		foreach ( $this->reporters as $reporter ) {
@@ -51,7 +50,6 @@ class ObservableMessageReporter implements MessageReporter {
 	 * @param MessageReporter $reporter
 	 *
 	 * @since 1.0
-	 *
 	 */
 	public function registerMessageReporter( MessageReporter $reporter ) {
 		$this->reporters[] = $reporter;
@@ -63,7 +61,6 @@ class ObservableMessageReporter implements MessageReporter {
 	 * @param callable $handler |null
 	 *
 	 * @since 1.0
-	 *
 	 */
 	public function registerReporterCallback( $handler = null ) {
 		if ( is_callable( $handler ) ) {
