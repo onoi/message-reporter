@@ -17,9 +17,6 @@ trait MessageReporterAwareTrait {
 
 	/**
 	 * @param MessageReporter $messageReporter
-	 *
-	 * @since 1.3
-	 *
 	 */
 	public function setMessageReporter( MessageReporter $messageReporter ) {
 		$this->messageReporter = $messageReporter;
