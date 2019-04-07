@@ -5,7 +5,6 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/onoi/message-reporter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/onoi/message-reporter/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/onoi/message-reporter/version.png)](https://packagist.org/packages/onoi/message-reporter)
 [![Packagist download count](https://poser.pugx.org/onoi/message-reporter/d/total.png)](https://packagist.org/packages/onoi/message-reporter)
-[![Dependency Status](https://www.versioneye.com/php/onoi:message-reporter/badge.png)](https://www.versioneye.com/php/onoi:message-reporter)
 
 An interface to report and relay arbitrary messages to registered handlers. This was part of
 the [Semantic MediaWiki][smw] code base and is now being deployed as independent library.
