@@ -18,21 +18,22 @@ class ObservableMessageReporter implements MessageReporter {
 	 *
 	 * @var MessageReporter[]
 	 */
-	protected $reporters = array();
+	protected $reporters = [];
 
 	/**
 	 * @since 1.0
 	 *
 	 * @var callable[]
 	 */
-	protected $callbacks = array();
+	protected $callbacks = [];
 
 	/**
-	 * @see MessageReporter::report
+	 * @param string $message
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $message
+	 * @see MessageReporter::report
+	 *
 	 */
 	public function reportMessage( $message ) {
 		foreach ( $this->reporters as $reporter ) {
@@ -47,9 +48,10 @@ class ObservableMessageReporter implements MessageReporter {
 	/**
 	 * Register a new message reporter.
 	 *
+	 * @param MessageReporter $reporter
+	 *
 	 * @since 1.0
 	 *
-	 * @param MessageReporter $reporter
 	 */
 	public function registerMessageReporter( MessageReporter $reporter ) {
 		$this->reporters[] = $reporter;
@@ -58,9 +60,10 @@ class ObservableMessageReporter implements MessageReporter {
 	/**
 	 * Register a callback as message reporter.
 	 *
+	 * @param callable $handler |null
+	 *
 	 * @since 1.0
 	 *
-	 * @param callable $handler|null
 	 */
 	public function registerReporterCallback( $handler = null ) {
 		if ( is_callable( $handler ) ) {

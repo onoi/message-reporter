@@ -12,8 +12,8 @@
          stopOnSkipped="false"
          verbose="true">
     <testsuites>
-        <testsuite name="onoi-message-reporter">
-            <directory>tests/phpunit</directory>
+        <testsuite name="unit">
+            <directory>tests/Unit</directory>
         </testsuite>
     </testsuites>
     <filter>

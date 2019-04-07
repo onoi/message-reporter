@@ -1,21 +1,16 @@
 <?php
 
-namespace Onoi\MessageReporter\Tests;
+namespace Onoi\MessageReporter\Tests\Unit;
+
+use Onoi\MessageReporter\MessageReporter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @group onoi-message-reporter
  *
  * @license GNU GPL v2+
- * @since 1.0
- *
- * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
-abstract class MessageReporterTestCase extends \PHPUnit_Framework_TestCase {
-
-	/**
-	 * @return MessageReporter[]
-	 */
-	public abstract function getInstances();
+abstract class MessageReporterTestCase extends TestCase {
 
 	/**
 	 * Message provider, includes edge cases and random tests
@@ -23,13 +18,13 @@ abstract class MessageReporterTestCase extends \PHPUnit_Framework_TestCase {
 	 * @return array
 	 */
 	public function reportMessageProvider() {
-		$messages = array();
+		$messages = [];
 
 		$messages[] = '';
 		$messages[] = '  ';
 
-		foreach ( array_merge( range( 1, 100 ), array( 1000, 10000 ) ) as $length ) {
-			$string = array();
+		foreach ( array_merge( range( 1, 100 ), [ 1000, 10000 ] ) as $length ) {
+			$string = [];
 
 			for ( $position = 0; $position < $length; $position++ ) {
 				$string[] = chr( mt_rand( 32, 126 ) );
@@ -39,6 +34,15 @@ abstract class MessageReporterTestCase extends \PHPUnit_Framework_TestCase {
 		}
 
 		return $this->arrayWrap( $messages );
+	}
+
+	protected function arrayWrap( array $elements ) {
+		return array_map(
+			function ( $element ) {
+				return [ $element ];
+			},
+			$elements
+		);
 	}
 
 	/**
@@ -54,13 +58,9 @@ abstract class MessageReporterTestCase extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	protected function arrayWrap( array $elements ) {
-		return array_map(
-			function ( $element ) {
-				return array( $element );
-			},
-			$elements
-		);
-	}
+	/**
+	 * @return MessageReporter[]
+	 */
+	public abstract function getInstances();
 
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace Onoi\MessageReporter\Tests;
+namespace Onoi\MessageReporter\Tests\Unit;
 
 use Onoi\MessageReporter\SpyMessageReporter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Onoi\MessageReporter\SpyMessageReporter
@@ -13,7 +14,7 @@ use Onoi\MessageReporter\SpyMessageReporter;
  *
  * @author mwjames
  */
-class SpyMessageReporterTest extends \PHPUnit_Framework_TestCase {
+class SpyMessageReporterTest extends TestCase {
 
 	public function testCanConstruct() {
 
@@ -29,7 +30,7 @@ class SpyMessageReporterTest extends \PHPUnit_Framework_TestCase {
 		$instance->reportMessage( 'foo' );
 
 		$this->assertEquals(
-			array( 'foo' ),
+			[ 'foo' ],
 			$instance->getMessages()
 		);
 

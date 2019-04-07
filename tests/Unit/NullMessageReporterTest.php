@@ -1,8 +1,9 @@
 <?php
 
-namespace Onoi\MessageReporter\Tests;
+namespace Onoi\MessageReporter\Tests\Unit;
 
 use Onoi\MessageReporter\NullMessageReporter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Onoi\MessageReporter\NullMessageReporter
@@ -13,7 +14,7 @@ use Onoi\MessageReporter\NullMessageReporter;
  *
  * @author mwjames
  */
-class NullMessageReporterTest extends \PHPUnit_Framework_TestCase {
+class NullMessageReporterTest extends TestCase {
 
 	public function testCanConstruct() {
 

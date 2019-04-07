@@ -16,9 +16,8 @@ class MessageReporterFactory {
 	private static $instance = null;
 
 	/**
-	 * @since 1.0
-	 *
 	 * @return MessageReporterFactory
+	 * @since 1.0
 	 */
 	public static function getInstance() {
 
@@ -37,27 +36,24 @@ class MessageReporterFactory {
 	}
 
 	/**
-	 * @since 1.0
-	 *
 	 * @return NullMessageReporter
+	 * @since 1.0
 	 */
 	public function newNullMessageReporter() {
 		return new NullMessageReporter();
 	}
 
 	/**
-	 * @since 1.0
-	 *
 	 * @return ObservableMessageReporter
+	 * @since 1.0
 	 */
 	public function newObservableMessageReporter() {
 		return new ObservableMessageReporter();
 	}
 
 	/**
-	 * @since 1.2
-	 *
 	 * @return SpyMessageReporter
+	 * @since 1.2
 	 */
 	public function newSpyMessageReporter() {
 		return new SpyMessageReporter();

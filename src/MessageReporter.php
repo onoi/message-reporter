@@ -15,9 +15,10 @@ interface MessageReporter {
 	/**
 	 * Report the provided message
 	 *
+	 * @param string $message
+	 *
 	 * @since 1.0
 	 *
-	 * @param string $message
 	 */
 	public function reportMessage( $message );
 

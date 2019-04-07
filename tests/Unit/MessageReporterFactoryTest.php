@@ -1,8 +1,9 @@
 <?php
 
-namespace Onoi\MessageReporter\Tests;
+namespace Onoi\MessageReporter\Tests\Unit;
 
 use Onoi\MessageReporter\MessageReporterFactory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Onoi\MessageReporter\MessageReporterFactory
@@ -13,7 +14,7 @@ use Onoi\MessageReporter\MessageReporterFactory;
  *
  * @author mwjames
  */
-class CacheFactoryTest extends \PHPUnit_Framework_TestCase {
+class MessageReporterFactoryTest extends TestCase {
 
 	public function testCanConstruct() {
 

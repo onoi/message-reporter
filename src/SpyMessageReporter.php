@@ -13,7 +13,7 @@ class SpyMessageReporter implements MessageReporter {
 	/**
 	 * @var array
 	 */
-	private $messages = array();
+	private $messages = [];
 
 	/**
 	 * @since 1.2
@@ -25,18 +25,18 @@ class SpyMessageReporter implements MessageReporter {
 	}
 
 	/**
+	 * @return array
 	 * @since 1.2
 	 *
-	 * @return array
 	 */
 	public function getMessages() {
 		return $this->messages;
 	}
 
 	/**
+	 * @return string
 	 * @since 1.2
 	 *
-	 * @return string
 	 */
 	public function getMessagesAsString() {
 		return implode( ', ', $this->messages );
@@ -46,7 +46,7 @@ class SpyMessageReporter implements MessageReporter {
 	 * @since 1.2
 	 */
 	public function clearMessages() {
-		$this->messages =  array();
+		$this->messages = [];
 	}
 
 }

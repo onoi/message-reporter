@@ -1,24 +1,16 @@
 <?php
 
-/**
- * @license GNU GPL v2+
- * @since 1.0
- *
- * @author mwjames
- */
+declare( strict_types = 1 );
 
-error_reporting( E_ALL | E_STRICT );
-date_default_timezone_set( 'UTC' );
-
-if ( PHP_SAPI !== 'cli' && PHP_SAPI !== 'phpdbg' ) {
+if ( PHP_SAPI !== 'cli' ) {
 	die( 'Not an entry point' );
 }
 
-if ( !is_readable( $path = __DIR__ . '/../vendor/autoload.php' ) ) {
-	if ( !is_readable( $path = __DIR__ . '/../../../autoload.php' ) ) {
-		die( 'The test suite requires the Composer autoloader to be present' );
-	}
+error_reporting( -1 );
+ini_set( 'display_errors', '1' );
+
+if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
+	die( 'You need to install this package with Composer before you can run the tests' );
 }
 
-$autoLoader = require $path;
-$autoLoader->addPsr4( 'Onoi\\MessageReporter\\Tests\\', __DIR__ . '/phpunit' );
+require __DIR__ . '/../vendor/autoload.php';

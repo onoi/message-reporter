@@ -14,9 +14,10 @@ interface MessageReporterAware {
 	 * Allows to inject a MessageReporter and make an object aware of its
 	 * existence.
 	 *
+	 * @param MessageReporter $messageReporter
+	 *
 	 * @since 1.2
 	 *
-	 * @param MessageReporter $messageReporter
 	 */
 	public function setMessageReporter( MessageReporter $messageReporter );
 
