@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.0
  *
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class NullMessageReporter implements MessageReporter {
@@ -15,6 +15,6 @@ class NullMessageReporter implements MessageReporter {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function reportMessage( $message ) {}
+	public function reportMessage( $message ) { }
 
 }

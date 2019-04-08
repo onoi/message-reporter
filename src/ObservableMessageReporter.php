@@ -6,9 +6,9 @@ namespace Onoi\MessageReporter;
  * Message reporter that reports messages by passing them along to all
  * registered handlers.
  *
- * @license GNU GPL v2+
  * @since 1.0
  *
+ * @license GNU GPL v2+
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 class ObservableMessageReporter implements MessageReporter {
@@ -18,21 +18,21 @@ class ObservableMessageReporter implements MessageReporter {
 	 *
 	 * @var MessageReporter[]
 	 */
-	protected $reporters = array();
+	protected $reporters = [];
 
 	/**
 	 * @since 1.0
 	 *
 	 * @var callable[]
 	 */
-	protected $callbacks = array();
+	protected $callbacks = [];
 
 	/**
-	 * @see MessageReporter::report
-	 *
 	 * @since 1.0
 	 *
 	 * @param string $message
+	 *
+	 * @see MessageReporter::report
 	 */
 	public function reportMessage( $message ) {
 		foreach ( $this->reporters as $reporter ) {
@@ -50,6 +50,7 @@ class ObservableMessageReporter implements MessageReporter {
 	 * @since 1.0
 	 *
 	 * @param MessageReporter $reporter
+	 *
 	 */
 	public function registerMessageReporter( MessageReporter $reporter ) {
 		$this->reporters[] = $reporter;
@@ -60,7 +61,8 @@ class ObservableMessageReporter implements MessageReporter {
 	 *
 	 * @since 1.0
 	 *
-	 * @param callable $handler|null
+	 * @param callable $handler |null
+	 *
 	 */
 	public function registerReporterCallback( $handler = null ) {
 		if ( is_callable( $handler ) ) {

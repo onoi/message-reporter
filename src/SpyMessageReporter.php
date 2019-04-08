@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.2
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 class SpyMessageReporter implements MessageReporter {
@@ -13,7 +13,7 @@ class SpyMessageReporter implements MessageReporter {
 	/**
 	 * @var array
 	 */
-	private $messages = array();
+	private $messages = [];
 
 	/**
 	 * @since 1.2
@@ -46,7 +46,7 @@ class SpyMessageReporter implements MessageReporter {
 	 * @since 1.2
 	 */
 	public function clearMessages() {
-		$this->messages =  array();
+		$this->messages = [];
 	}
 
 }

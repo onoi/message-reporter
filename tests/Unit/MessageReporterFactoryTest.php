@@ -1,19 +1,20 @@
 <?php
 
-namespace Onoi\MessageReporter\Tests;
+namespace Onoi\MessageReporter\Tests\Unit;
 
 use Onoi\MessageReporter\MessageReporterFactory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Onoi\MessageReporter\MessageReporterFactory
  * @group onoi-message-reporter
  *
- * @license GNU GPL v2+
  * @since 1.0
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
-class CacheFactoryTest extends \PHPUnit_Framework_TestCase {
+class MessageReporterFactoryTest extends TestCase {
 
 	public function testCanConstruct() {
 

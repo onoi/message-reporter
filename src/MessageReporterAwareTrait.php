@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.3
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 trait MessageReporterAwareTrait {
@@ -15,11 +15,6 @@ trait MessageReporterAwareTrait {
 	 */
 	protected $messageReporter;
 
-	/**
-	 * @since 1.3
-	 *
-	 * @param MessageReporter $messageReporter
-	 */
 	public function setMessageReporter( MessageReporter $messageReporter ) {
 		$this->messageReporter = $messageReporter;
 	}

@@ -1,16 +1,26 @@
 language: php
 
-matrix:
-  include:
-    - env: TYPE=coverage
-      php: 5.6
-    - env: TYPE=UNIT;
-      php: 5.5
-    - env: TYPE=UNIT; PHPUNIT=4.8.*
-      php: hhvm
+php:
+  - '7.0'
+  - '7.1'
+  - '7.2'
+  - '7.3'
+
+sudo: false
+
+install:
+  - travis_retry composer install
 
 script:
-  - bash ./tests/ci/run-tests.sh
+  - composer validate --no-interaction
+  - make ci
 
 after_success:
-  - bash ./tests/ci/upload-coverage-report.sh
+  - if [[ "`phpenv version-name`" != "7.3" ]]; then exit 0; fi
+  - vendor/bin/phpunit --coverage-clover coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
+cache:
+  directories:
+    - $HOME/.composer/cache

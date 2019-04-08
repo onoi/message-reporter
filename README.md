@@ -11,7 +11,7 @@ the [Semantic MediaWiki][smw] code base and is now being deployed as independent
 
 ## Requirements
 
-PHP 5.5 / HHVM 3.3 or later
+PHP 5.6 or later
 
 ## Installation
 
@@ -88,11 +88,33 @@ developers mailing list and have a look at the [contribution guidelinee](/CONTRI
 * [File an issue](https://github.com/onoi/message-reporter/issues)
 * [Submit a pull request](https://github.com/onoi/message-reporter/pulls)
 
-## Tests
+## Development
 
-The library provides unit tests that covers the core-functionality normally run by the [continues integration platform][travis]. Tests can also be executed manually using the PHPUnit configuration file found in the root directory.
+Start by installing the project dependencies by executing
+
+    composer update
+
+You can run the tests by executing
+
+    make test
+    
+You can run the style checks by executing
+
+    make cs
+    
+To run all CI checks, execute
+
+    make ci
+    
+You can also invoke PHPUnit directly to pass it arguments, as follows
+
+    vendor/bin/phpunit --filter SomeClassNameOrFilter
 
 ## Release notes
+
+* 1.4.0 (2019-04-07)
+  - Added `CallbackMessageReporter`
+  - Changed minimum PHP version to 5.6.99
 
 * 1.3.0 (2017-11-05)
   - Added `MessageReporterAwareTrait`
