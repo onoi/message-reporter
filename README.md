@@ -11,7 +11,7 @@ the [Semantic MediaWiki][smw] code base and is now being deployed as independent
 
 ## Requirements
 
-PHP 5.6 or later
+PHP 5.6.99 or later
 
 ## Installation
 
@@ -32,6 +32,7 @@ The message reporter specifies `MessageReporter` and `MessageReporterAware` as a
 - `ObservableMessageReporter`
 - `NullMessageReporter`
 - `SpyMessageReporter`
+- `CallbackMessageReporter`
 
 ```php
 use Onoi\MessageReporter\MessageReporterFactory;
@@ -112,7 +113,7 @@ You can also invoke PHPUnit directly to pass it arguments, as follows
 
 ## Release notes
 
-* 1.4.0 (2019-04-07)
+* 1.4.0 (2019-04-08)
   - Added `CallbackMessageReporter`
   - Changed minimum PHP version to 5.6.99
 

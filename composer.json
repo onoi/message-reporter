@@ -3,7 +3,8 @@
 	"type": "library",
 	"description": "An interface to report and relay arbitrary messages to registered handlers",
 	"keywords": [
-		"messages"
+		"messages",
+		"reporter"
 	],
 	"homepage": "https://github.com/onoi/message-reporter",
 	"license": "GPL-2.0-or-later",
