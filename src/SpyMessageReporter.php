@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.2
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 class SpyMessageReporter implements MessageReporter {
@@ -25,18 +25,18 @@ class SpyMessageReporter implements MessageReporter {
 	}
 
 	/**
-	 * @return array
 	 * @since 1.2
 	 *
+	 * @return array
 	 */
 	public function getMessages() {
 		return $this->messages;
 	}
 
 	/**
-	 * @return string
 	 * @since 1.2
 	 *
+	 * @return string
 	 */
 	public function getMessagesAsString() {
 		return implode( ', ', $this->messages );

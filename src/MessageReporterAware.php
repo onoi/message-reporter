@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.2
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 interface MessageReporterAware {
@@ -13,11 +13,6 @@ interface MessageReporterAware {
 	/**
 	 * Allows to inject a MessageReporter and make an object aware of its
 	 * existence.
-	 *
-	 * @param MessageReporter $messageReporter
-	 *
-	 * @since 1.2
-	 *
 	 */
 	public function setMessageReporter( MessageReporter $messageReporter );
 

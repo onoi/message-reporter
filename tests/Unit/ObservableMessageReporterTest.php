@@ -2,9 +2,8 @@
 
 namespace Onoi\MessageReporter\Tests\Unit;
 
-use Onoi\MessageReporter\ObservableMessageReporter;
 use Onoi\MessageReporter\MessageReporter;
-use PHPUnit\Framework\TestCase;
+use Onoi\MessageReporter\ObservableMessageReporter;
 
 /**
  * @covers \Onoi\MessageReporter\ObservableMessageReporter

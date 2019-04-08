@@ -9,9 +9,9 @@ use PHPUnit\Framework\TestCase;
  * @covers \Onoi\MessageReporter\SpyMessageReporter
  * @group onoi-message-reporter
  *
- * @license GNU GPL v2+
  * @since 1.2
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 class SpyMessageReporterTest extends TestCase {

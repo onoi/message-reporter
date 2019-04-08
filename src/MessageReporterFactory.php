@@ -3,9 +3,9 @@
 namespace Onoi\MessageReporter;
 
 /**
- * @license GNU GPL v2+
  * @since 1.0
  *
+ * @license GNU GPL v2+
  * @author mwjames
  */
 class MessageReporterFactory {
@@ -16,8 +16,8 @@ class MessageReporterFactory {
 	private static $instance = null;
 
 	/**
-	 * @return MessageReporterFactory
 	 * @since 1.0
+	 * @return MessageReporterFactory
 	 */
 	public static function getInstance() {
 
@@ -36,24 +36,24 @@ class MessageReporterFactory {
 	}
 
 	/**
-	 * @return NullMessageReporter
 	 * @since 1.0
+	 * @return NullMessageReporter
 	 */
 	public function newNullMessageReporter() {
 		return new NullMessageReporter();
 	}
 
 	/**
-	 * @return ObservableMessageReporter
 	 * @since 1.0
+	 * @return ObservableMessageReporter
 	 */
 	public function newObservableMessageReporter() {
 		return new ObservableMessageReporter();
 	}
 
 	/**
-	 * @return SpyMessageReporter
 	 * @since 1.2
+	 * @return SpyMessageReporter
 	 */
 	public function newSpyMessageReporter() {
 		return new SpyMessageReporter();
