@@ -114,7 +114,7 @@ You can also invoke PHPUnit directly to pass it arguments, as follows
 ## Release notes
 
 * 1.4.1 (2019-04-10)
-- Added `.gitattributes`
+  - Added `.gitattributes`
 
 * 1.4.0 (2019-04-08)
   - Added `CallbackMessageReporter`
