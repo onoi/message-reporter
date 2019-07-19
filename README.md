@@ -1,4 +1,4 @@
-# Message reporter
+# Message Reporter
 
 [![Build Status](https://secure.travis-ci.org/onoi/message-reporter.svg?branch=master)](http://travis-ci.org/onoi/message-reporter)
 [![Code Coverage](https://scrutinizer-ci.com/g/onoi/message-reporter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/onoi/message-reporter/?branch=master)
