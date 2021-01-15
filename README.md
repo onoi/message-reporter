@@ -38,7 +38,6 @@ The message reporter specifies `MessageReporter` and `MessageReporterAware` as a
 use Onoi\MessageReporter\MessageReporterFactory;
 use Onoi\MessageReporter\MessageReporterAware;
 use Onoi\MessageReporter\MessageReporterAwareTrait;
-use Onoi\MessageReporter\MessageReporter;
 
 class Bar implements MessageReporterAware {
 
@@ -112,6 +111,10 @@ You can also invoke PHPUnit directly to pass it arguments, as follows
     vendor/bin/phpunit --filter SomeClassNameOrFilter
 
 ## Release notes
+
+* 1.4.2 (2021-01-15)
+  - Added support for PHP 8
+  - Changed minimum PHP version to 7.3
 
 * 1.4.1 (2019-04-10)
   - Added `.gitattributes`
